@@ -40,7 +40,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            transition: padding 0.3s;
+            transition: opacity 0.3s ease, padding 0.3s;
             box-shadow: none;
         }
         header .container {
@@ -292,7 +292,7 @@
                 <ul>
                     <li><a href="#home">Αρχική</a></li>
                     <li><a href="#about">Βιογραφικό</a></li>
-                    <li><a href="#equipment">Εξοπλισμός</a></li>
+                    <li><a href="#equipment">Εξοπλισμος</a></li>
                     <li><a href="#gallery">Εγκαταστάσεις</a></li>
                     <li><a href="#contact">Επικοινωνία</a></li>
                 </ul>
@@ -303,7 +303,7 @@
     <main>
         <section id="home">
             <div class="container">
-                <h1>Endoscopy Unit - Δρ. Αναστασιος Αρμονης</h1>
+                <h1>Endoscopy Unit - Δρ. Αναστάσιος Αρμόνης</h1>
                 <p>Γαστρεντερόλογος - Ηπατολόγος, Διδάκτωρ Πανεπιστημίου Αθηνών</p>
             </div>
         </section>
@@ -403,6 +403,23 @@
         document.querySelector('.back-to-top').addEventListener('click', function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // Fade header on scroll
+        let prevScrollPos = window.pageYOffset;
+        const header = document.querySelector('header');
+        const scrollThreshold = 100; // Adjust this value to control when fading starts
+
+        window.addEventListener('scroll', () => {
+            const currentScrollPos = window.pageYOffset;
+            
+            if (currentScrollPos > scrollThreshold) {
+                const opacity = Math.max(0, Math.min(1, 1 - (currentScrollPos - scrollThreshold) / 200));
+                header.style.opacity = opacity;
+            } else {
+                header.style.opacity = 1;
+            }
+
+            prevScrollPos = currentScrollPos;
         });
     </script>
 </body>
