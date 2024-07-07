@@ -224,11 +224,12 @@
         }
         @media(max-width: 768px) {
             .container {
-                width: 90%;
-                padding: 10px;
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
             }
             header h1 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             header ul {
                 flex-direction: column;
@@ -238,37 +239,55 @@
                 padding: 10px 0;
             }
             #home h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             #home p {
                 font-size: 1rem;
-            }
-            #about img, #equipment img, #contact img {
-                width: 100%;
-                height: auto;
             }
             .flex-container {
                 flex-direction: column;
             }
             .text-content {
-                min-width: 100%;
+                padding: 15px;
             }
-            #about .flex-container {
+            #about .flex-container,
+            #equipment .flex-container {
                 flex-direction: column;
                 align-items: center;
             }
             #about .doctor-image {
                 margin-bottom: 20px;
+                width: 150px;
+                height: 150px;
             }
-            #about img, #equipment img, #contact img {
+            #about img,
+            #equipment img {
                 width: 100%;
                 height: auto;
+                max-width: 300px;
             }
-            .flex-container {
-                flex-direction: column;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
-            .text-content {
-                min-width: 100%;
+            .gallery-item img {
+                height: 150px;
+            }
+        }
+        @media(max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            #home h1 {
+                font-size: 1.5rem;
+            }
+            #home p {
+                font-size: 0.9rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
         /* Custom Scrollbar */
